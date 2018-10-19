@@ -17,9 +17,14 @@
     	<span>- </span><%= comment.author %>
     <strong>
   </p>
+  <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+  
 <% end %>
 
 <h4>Add Comment</h4>
+
+
+
 <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
   <p>
     <%= form.label :comment %><br>
