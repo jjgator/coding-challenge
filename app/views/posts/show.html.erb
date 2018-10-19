@@ -18,6 +18,9 @@
     <strong>
   </p>
   <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+  <%= link_to 'Delete', post_comment_path(@post, comment),
+	            method: :delete,
+	            data: { confirm: 'Are you sure you want to delete this comment? Once you delete it, it cannot be restored.' } %>
   
 <% end %>
 
