@@ -1,29 +1,31 @@
 <!-- View for showing a single `Post` -->
-<strong>
-	<%= @post.title %>
-</strong>
+<div class="post">
+  <strong>
+  	<%= @post.title %>
+  </strong>
 
-<p>
-	<%= @post.body %>
-</p>
-
-<h4>Comments</h4>
-<% @post.comments.each do |comment| %>
-  <p>
-    <%= comment.body %>
+  <p class="post-body">
+  	<%= @post.body %>
   </p>
-  <p>
-    <strong>
-    	<span>- </span><%= comment.author %>
-    <strong>
-  </p>
-  <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-  <%= link_to 'Delete', post_comment_path(@post, comment),
-	            method: :delete,
-	            data: { confirm: 'Are you sure you want to delete this comment? Once you delete it, it cannot be restored.' } %>
-  
-<% end %>
+  <%= link_to 'Delete Post', post_path(@post),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this post? Once you delete it, it cannot be restored.' } %>
+</div>
 
+<div class="comment">
+  <p class="title">Comments</p>
+  <% @post.comments.each do |comment| %>
+    <p>
+      <%= comment.body %>
+      <span>- </span><%= comment.author %>
+    </p>
+    <%= link_to 'Edit', edit_post_comment_path(@post, comment), class: 'comment-link' %>
+    <%= link_to 'Delete', post_comment_path(@post, comment), class: 'comment-link', 
+  	            method: :delete,
+  	            data: { confirm: 'Are you sure you want to delete this comment? Once you delete it, it cannot be restored.' } %>
+    
+  <% end %>
+</div>
 <h4>Add Comment</h4>
 
 
@@ -42,8 +44,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Delete', post_path(@post),
-            method: :delete,
-            data: { confirm: 'Are you sure you want to delete this post? Once you delete it, it cannot be restored.' } %>
 
-<%= link_to 'Back to All Posts', posts_path %>

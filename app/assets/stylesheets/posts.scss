@@ -1,3 +1,38 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.nav-add-link {
+	color: white;
+	background-color: #559498;
+	font-size: 12px;
+  font-weight: bold;
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  border-radius: 3px;
+}
+
+.post {
+	margin: 10px 0 15px 0;
+	strong {
+		font-size: 16px;
+	}
+	.post-body {
+		font-size: 14px;
+	}
+	.post-comments-link {
+		font-size: 12px;
+		a {
+			color: #559498;
+		}
+	}
+}
+
+.comment {
+	font-size: 12px;
+	.title {
+		font-weight: bold;
+		text-decoration: underline;
+		color: #559498;
+	}
+	
+}

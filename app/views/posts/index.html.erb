@@ -1,15 +1,10 @@
 <!-- View for showing all `Post` -->
-<h1>Posts</h1>
-
-<%= form_tag(posts_path, method: 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search' %>
-<% end %>
-
-<%= link_to 'Add New Post', new_post_path %><br/>
+<%= link_to 'Add New Post', new_post_path, class: 'nav-add-link' %><br/>
 
 <% @posts.each do |post| %>
-	<strong><%= post.title %></strong><br/>
-	<span><%= truncate(post.body, :length => 100, separator: ' ') %></span><br/>
-	<span><%= link_to "comments: " + post.comments.count.to_s, post_path(post) %></span></br>
+	<div class="post">
+		<strong><%= post.title %></strong><br/>
+		<span class="post-body"><%= truncate(post.body, :length => 150, separator: ' ') %></span><br/>
+		<span class="post-comments-link"><%= link_to "comments: " + post.comments.count.to_s, post_path(post) %></span></br>
+	</div>
 <% end %>

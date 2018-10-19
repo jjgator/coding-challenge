@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 15px;
+  background: #f2f5f8;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  background-color: #c6d1dc;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}
+
+.nav-posts-link {
+	color: #559498;
+	font-size: large;
+  font-weight: bold;
+  border-radius: 3px;
+}
