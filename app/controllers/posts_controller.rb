@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   def index
-    # Return all `Posts`
-    @posts = Post.all
+    # if search params, return only matching `Posts`
+    @posts = if params[:search]
+      Post.where('title LIKE ? OR body LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+    # else return all `Posts`
+      @posts = Post.all
+    end
   end
 
   def show
