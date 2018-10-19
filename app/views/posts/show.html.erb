@@ -1,1 +1,10 @@
 <!-- View for showing a single `Post` -->
+<strong>
+	<%= @post.title %>
+</strong>
+
+<p>
+	<%= @post.body %>
+</p>
+
+<%= link_to 'Back to All Posts', posts_path %>

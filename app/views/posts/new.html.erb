@@ -1,2 +1,32 @@
 <!-- View for creating a new `Post` -->
-<!-- See http://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms for more information -->
+<h1>Create New Post</h1>
+
+<% if @post.errors.any? %>
+  <h4>
+    <%= pluralize(@post.errors.count, "error") %> prohibited
+    this article from being saved:
+  </h4>
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to All Posts', posts_path %>
