@@ -7,4 +7,8 @@
 	<%= @post.body %>
 </p>
 
+<%= link_to 'Delete', post_path(@post),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this post? Once you delete it, it cannot be restored.' } %>
+
 <%= link_to 'Back to All Posts', posts_path %>

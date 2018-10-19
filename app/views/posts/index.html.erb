@@ -1,6 +1,8 @@
 <!-- View for showing all `Post` -->
 <h1>Posts</h1>
 
+<%= link_to 'Add New Post', new_post_path %><br/>
+
 <% @posts.each do |post| %>
 	<strong><%= post.title %></strong>
 	<p><%= truncate(post.body, :length => 100, separator: ' ') %></p>
