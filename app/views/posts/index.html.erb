@@ -9,6 +9,7 @@
 <%= link_to 'Add New Post', new_post_path %><br/>
 
 <% @posts.each do |post| %>
-	<strong><%= post.title %></strong>
-	<p><%= truncate(post.body, :length => 100, separator: ' ') %></p>
+	<strong><%= post.title %></strong><br/>
+	<span><%= truncate(post.body, :length => 100, separator: ' ') %></span><br/>
+	<span><%= link_to "comments: " + post.comments.count.to_s, post_path(post) %></span></br>
 <% end %>
